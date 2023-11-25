@@ -1,12 +1,12 @@
 // const express = require('express')
 const express = require("express")
 // const mongoose = require("mongoose")
-const connectDB = require('./config/db.js')
+const connectDB = require("./config/db.js")
 const articleRouter = require("./routes/articles.js")
 const { configDotenv } = require("dotenv")
 const app = express()
 
-configDotenv({path: './config/config.env'})
+configDotenv({ path: "./config/config.env" })
 
 connectDB()
 // mongoose.connect("mongodb://localhost/blog")
