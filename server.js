@@ -1,10 +1,15 @@
 // const express = require('express')
 const express = require("express")
-const mongoose = require("mongoose")
+// const mongoose = require("mongoose")
+const connectDB = require('./config/db.js')
 const articleRouter = require("./routes/articles.js")
+const { configDotenv } = require("dotenv")
 const app = express()
 
-mongoose.connect("mongodb://localhost/blog")
+configDotenv({path: './config/config.env'})
+
+connectDB()
+// mongoose.connect("mongodb://localhost/blog")
 
 app.set("view engine", "ejs")
 
@@ -28,4 +33,4 @@ app.get("/", (req, res) => {
 
 app.use("/articles", articleRouter)
 
-app.listen(5500)
+app.listen(process.env.PORT)
